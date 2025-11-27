@@ -54,9 +54,9 @@ with engine.connect() as conn:
     print("✅ Tables created")
 
 # Load CSVs
-customers_df = pd.read_csv('./customers.csv')
-products_df = pd.read_csv('./products.csv')
-orders_df = pd.read_csv('./orders.csv')
+customers_df = pd.read_csv('customers.csv')
+products_df = pd.read_csv('products.csv')
+orders_df = pd.read_csv('orders.csv')
 
 customers_df.to_sql('customers', engine, schema='raw', if_exists='append', index=False)
 products_df.to_sql('products', engine, schema='raw', if_exists='append', index=False)
