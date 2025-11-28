@@ -1,0 +1,18 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+  git \
+  && rm -rf /var/lib/apt/lists/*
+
+# Install dbt
+RUN pip install --no-cache-dir \
+  dbt-core==1.7.18 \
+  dbt-postgres==1.7.18
+
+# Set up dbt profiles directory
+RUN mkdir -p /root/.dbt
+
+CMD ["dbt"]
