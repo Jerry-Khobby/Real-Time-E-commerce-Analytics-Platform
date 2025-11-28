@@ -1,8 +1,7 @@
-WITH source as (
-
-  select * from {{source('raw','orders')}}
-)
-
+WITH source AS (
+    SELECT * 
+    FROM {{ source('raw','orders') }}
+),
 cleaned AS (
     SELECT
         order_id,
@@ -18,4 +17,5 @@ cleaned AS (
     FROM source
 )
 
-SELECT * FROM cleaned
+SELECT * 
+FROM cleaned
