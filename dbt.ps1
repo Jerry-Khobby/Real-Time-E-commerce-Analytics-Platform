@@ -5,7 +5,8 @@ param(
 
 docker run --rm -it `
   -v ${PWD}:/app `
-  --network host `
+  -p 8080:8080 `
   my-dbt dbt $args `
   --profiles-dir /app/ecommerce_dbt `
   --project-dir /app/ecommerce_dbt
+
